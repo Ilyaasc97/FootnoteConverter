@@ -1,0 +1,351 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<oor:component-data
+  xmlns:oor="http://openoffice.org/2001/registry"
+  xmlns:xs="http://www.w3.org/2001/XMLSchema"
+  oor:name="Addons"
+  oor:package="org.openoffice.Office">
+  <node oor:name="AddonUI">
+
+    <!-- Top Menu Bar -->
+    <node oor:name="OfficeMenuBar">
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.menubar" oor:op="replace">
+        <prop oor:name="Title" oor:type="xs:string">
+          <value xml:lang="en">Footnotes</value>
+          <value xml:lang="ar">محول الحواشي</value>
+        </prop>
+        <prop oor:name="Target" oor:type="xs:string">
+          <value>_self</value>
+        </prop>
+        <node oor:name="Submenu">
+          <node oor:name="M0" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Wrap Selection with &lt; &gt;</value>
+              <value xml:lang="ar">إحاطة النص المحدد بـ &lt; &gt;</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:wrap_selection</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M1" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Convert to Footnotes (1)</value>
+              <value xml:lang="ar">تحويل النصوص إلى حواشي سفلية (1)</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:convert</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M2" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Numbering: Restart on Each Page</value>
+              <value xml:lang="ar">الترقيم: إعادة البدء في كل صفحة (1)</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:numbering_per_page</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M3" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Numbering: Continuous (Whole Document)</value>
+              <value xml:lang="ar">الترقيم: مستمر لكامل المستند</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:numbering_continuous</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M4" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Align Footnotes &amp; Separator Line by Language</value>
+              <value xml:lang="ar">تصحيح محاذاة الحواشي والفاصل حسب اللغة</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:format_numbering</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M4_1" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Unify Footnotes Font &amp; Size</value>
+              <value xml:lang="ar">توحيد خط الحواشي وحجمها (Font &amp; Size)</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:unify_font</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M5" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">Reverse: Extract Footnotes to &lt; &gt;</value>
+              <value xml:lang="ar">التحويل العكسي: استخراج الحواشي إلى &lt; &gt;</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:reverse</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+          <node oor:name="M6" oor:op="replace">
+            <prop oor:name="Title">
+              <value xml:lang="en">About Footnote Converter...</value>
+              <value xml:lang="ar">حول محول الحواشي المطور...</value>
+            </prop>
+            <prop oor:name="URL">
+              <value>vnd.footnote.converter:about</value>
+            </prop>
+            <prop oor:name="Target" oor:type="xs:string">
+              <value>_self</value>
+            </prop>
+          </node>
+        </node>
+      </node>
+    </node>
+
+    <!-- Standard Tools -> Add-Ons Menu -->
+    <node oor:name="AddonMenu">
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.addonmenu0" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:wrap_selection</value>
+        </prop>
+        <prop oor:name="Title" oor:type="xs:string">
+          <value xml:lang="en">Wrap Selection with &lt; &gt;</value>
+          <value xml:lang="ar">إحاطة النص المحدد بـ &lt; &gt;</value>
+        </prop>
+        <prop oor:name="Target" oor:type="xs:string">
+          <value>_self</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.addonmenu1" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:convert</value>
+        </prop>
+        <prop oor:name="Title" oor:type="xs:string">
+          <value xml:lang="en">Convert to Footnotes (1)</value>
+          <value xml:lang="ar">تحويل النصوص إلى حواشي (1)</value>
+        </prop>
+        <prop oor:name="Target" oor:type="xs:string">
+          <value>_self</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.addonmenu2" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:reverse</value>
+        </prop>
+        <prop oor:name="Title" oor:type="xs:string">
+          <value xml:lang="en">Reverse: Extract Footnotes to &lt; &gt;</value>
+          <value xml:lang="ar">التحويل العكسي: استخراج الحواشي إلى &lt; &gt;</value>
+        </prop>
+        <prop oor:name="Target" oor:type="xs:string">
+          <value>_self</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.addonmenu3" oor:op="replace">
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:unify_font</value>
+        </prop>
+        <prop oor:name="Title" oor:type="xs:string">
+          <value xml:lang="en">Unify Footnotes Font &amp; Size</value>
+          <value xml:lang="ar">توحيد خط الحواشي وحجمها</value>
+        </prop>
+        <prop oor:name="Target" oor:type="xs:string">
+          <value>_self</value>
+        </prop>
+      </node>
+    </node>
+
+    <!-- Toolbar Buttons -->
+    <node oor:name="OfficeToolBar">
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.toolbar" oor:op="replace">
+        <node oor:name="t00" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string">
+            <value>vnd.footnote.converter:wrap_selection</value>
+          </prop>
+          <prop oor:name="Target" oor:type="xs:string">
+            <value>_self</value>
+          </prop>
+          <prop oor:name="Title" oor:type="xs:string">
+            <value xml:lang="en">Wrap &lt; &gt;</value>
+            <value xml:lang="ar">إحاطة بـ &lt; &gt;</value>
+          </prop>
+        </node>
+        <node oor:name="t01" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string">
+            <value>vnd.footnote.converter:convert</value>
+          </prop>
+          <prop oor:name="Target" oor:type="xs:string">
+            <value>_self</value>
+          </prop>
+          <prop oor:name="Title" oor:type="xs:string">
+            <value xml:lang="en">Convert to Footnotes (1)</value>
+            <value xml:lang="ar">تحويل إلى حواشي (1)</value>
+          </prop>
+        </node>
+        <node oor:name="t02" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string">
+            <value>vnd.footnote.converter:numbering_per_page</value>
+          </prop>
+          <prop oor:name="Target" oor:type="xs:string">
+            <value>_self</value>
+          </prop>
+          <prop oor:name="Title" oor:type="xs:string">
+            <value xml:lang="en">Restart per Page</value>
+            <value xml:lang="ar">ترقيم لكل صفحة</value>
+          </prop>
+        </node>
+        <node oor:name="t02_1" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string">
+            <value>vnd.footnote.converter:unify_font</value>
+          </prop>
+          <prop oor:name="Target" oor:type="xs:string">
+            <value>_self</value>
+          </prop>
+          <prop oor:name="Title" oor:type="xs:string">
+            <value xml:lang="en">Unify Font &amp; Size</value>
+            <value xml:lang="ar">توحيد خط وحجم الحاشية</value>
+          </prop>
+        </node>
+        <node oor:name="t03" oor:op="replace">
+          <prop oor:name="URL" oor:type="xs:string">
+            <value>vnd.footnote.converter:reverse</value>
+          </prop>
+          <prop oor:name="Target" oor:type="xs:string">
+            <value>_self</value>
+          </prop>
+          <prop oor:name="Title" oor:type="xs:string">
+            <value xml:lang="en">Extract to &lt; &gt;</value>
+            <value xml:lang="ar">استخراج إلى &lt; &gt;</value>
+          </prop>
+        </node>
+        <prop oor:name="Title" oor:type="xs:string">
+          <value xml:lang="en">Footnote Tools</value>
+          <value xml:lang="ar">أدوات الحواشي</value>
+        </prop>
+      </node>
+    </node>
+
+    <!-- Images -->
+    <node oor:name="Images">
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.convert" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/footnote_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/footnote_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:convert</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.wrap" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/wrap_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/wrap_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:wrap_selection</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.per_page" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/per_page_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/per_page_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:numbering_per_page</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.continuous" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/continuous_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/continuous_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:numbering_continuous</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.format_numbering" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/align_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/align_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:format_numbering</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.unify_font" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/unify_font_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/unify_font_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:unify_font</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.reverse" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/reverse_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/reverse_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:reverse</value>
+        </prop>
+      </node>
+      <node oor:name="com.github.ilyaasc97.footnoteconverter.images.about" oor:op="replace">
+        <node oor:name="UserDefinedImages">
+          <prop oor:name="ImageSmallURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/about_16.png</value>
+          </prop>
+          <prop oor:name="ImageBigURL">
+            <value>vnd.sun.star.extension://com.github.ilyaasc97.footnoteconverter/icons/about_26.png</value>
+          </prop>
+        </node>
+        <prop oor:name="URL" oor:type="xs:string">
+          <value>vnd.footnote.converter:about</value>
+        </prop>
+      </node>
+    </node>
+
+  </node>
+</oor:component-data>

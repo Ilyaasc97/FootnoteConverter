@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description xmlns="http://openoffice.org/extensions/description/2006" 
+             xmlns:dep="http://openoffice.org/extensions/description/2006" 
+             xmlns:xlink="http://www.w3.org/1999/xlink">
+    <identifier value="com.github.ilyaasc97.footnoteconverter" />
+    <version value="2.3.1" />
+    <display-name>
+        <name lang="en">Footnote Converter</name>
+        <name lang="ar">محول الحواشي التلقائي</name>
+    </display-name>
+    <publisher>
+        <name xlink:href="https://github.com/Ilyaasc97/FootnoteConverter">Ilyaasc97</name>
+    </publisher>
+    <description>
+        <text lang="en">Converts the text enclosed in &lt; &gt; markers into native LibreOffice footnotes numbered as (1) in the text body and (1) in the footnote footer. Text inside quotes « », hadith brackets (( )) and square brackets [ ] is always protected and never converted. Includes smart spacing and punctuation cleanup, font &amp; size unifier (body size - 2 pt), automatic RTL/LTR alignment of the footnote text and separator line, per-page or continuous numbering, reverse conversion back to &lt; &gt; markers, and full Undo support (Ctrl + Z). Documents exported as .docx keep a native footnote structure for academic submission.</text>
+        <text lang="ar">يحوّل النصوص المحصورة بين &lt; &gt; إلى حواشي سفلية معتمدة في LibreOffice مع ترقيم المتن والحاشية بصيغة (1). ولا تُمس أقواس الاقتباس « » ولا أقواس الحديث (( )) ولا الأقواس [ ]. ويتضمن: المعالجة الذكية للمسافات وعلامات الترقيم، وتوحيد خط الحاشية وحجمها (حجم المتن - نقطتان)، وضبط المحاذاة والاتجاه تلقائياً (RTL/LTR)، والترقيم لكل صفحة أو للمستند كاملاً، والتحويل العكسي إلى علامات &lt; &gt;، ودعم التراجع الكامل (Ctrl + Z). وتُحفظ الحواشي عند التصدير بصيغة (.docx) ببنية حواشٍ أصلية صحيحة للتسليم الأكاديمي.</text>
+    </description>
+    <icon>
+        <default xlink:href="icons/footnote_48.png" />
+    </icon>
+    <dependencies>
+        <dep:OpenOffice.org-minimal-version value="4.0" />
+    </dependencies>
+</description>

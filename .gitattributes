@@ -1,0 +1,9 @@
+# Normalize line endings for text files on commit, keep binaries untouched.
+* text=auto
+
+# Binary assets: never perform line-ending or encoding conversion
+*.png binary
+*.oxt binary
+
+# Windows scripts must be checked out with CRLF to run correctly in cmd.exe
+*.bat text eol=crlf
