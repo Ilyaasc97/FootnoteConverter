@@ -121,7 +121,52 @@ class FootnoteService:
             pass
         return False
 
+    def ensure_footnote_period(self, text):
+        """
+        تضيف نقطة وقف تلقائياً في نهاية نص الحاشية إذا لم تكن تنتهي بعلامة وقف.
+        Auto-appends '.' to footnote text if it doesn't end with terminal punctuation.
+        """
+        if not text:
+            return text
+        t = text.rstrip()
+        terminal_chars = {'.', '؟', '!', '?', '»', '\u201d', "'"}
+        if t and t[-1] not in terminal_chars:
+            t = t + '.'
+        return t
+
+    def fix_footnotes_punctuation(self, doc):
+        """
+        تضيف نقطة وقف للحواشي الموجودة التي لا تنتهي بعلامة وقف.
+        Adds a period to existing footnotes that lack terminal punctuation.
+        """
+        fixed = 0
+        try:
+            fns = doc.getFootnotes()
+            if not fns:
+                return fixed
+            for i in range(fns.getCount()):
+                try:
+                    fn = fns.getByIndex(i)
+                    fn_text = fn.getText()
+                    # نتحقق من آخر حرف فعلياً في المستند
+                    chk = fn_text.createTextCursor()
+                    chk.gotoEnd(False)
+                    moved = chk.goLeft(1, True)
+                    last_char = chk.getString() if moved else ''
+                    terminal_chars = {'.', '؟', '!', '?', '»', '\u201d', "'"}
+                    if last_char not in terminal_chars:
+                        cur_end = fn_text.createTextCursor()
+                        cur_end.gotoEnd(False)
+                        fn_text.insertString(cur_end, '.', False)
+                        fixed += 1
+                except Exception:
+                    pass
+        except Exception as e:
+            print(f"[FootnoteConverter] fix_footnotes_punctuation error: {e}")
+        return fixed
+
     def adjust_footnote_separator(self, doc, is_rtl=True):
+
         """
         ضبط خط الفاصل تلقائياً حسب لغة المستند:
           - عربي  (RTL) → يمين  (RIGHT = 2)
@@ -438,6 +483,8 @@ class FootnoteService:
                     except Exception:
                         pass
 
+                    # إضافة نقطة وقف تلقائياً إذا لم تكن الحاشية تنتهي بعلامة وقف
+                    content = self.ensure_footnote_period(content)
                     footnote.setString(content)
 
                     if is_rtl:
@@ -710,6 +757,8 @@ class FootnoteService:
             fn_settings.NumberingType = 4
 
             fixed = self.fix_existing_footnote_brackets(doc)
+            # إضافة نقطة وقف للحواشي الموجودة التي تفتقرها
+            self.fix_footnotes_punctuation(doc)
 
             # Unlock document and seal the undo context BEFORE the modal message box
             if action_locked and hasattr(doc, "removeActionLock"):
