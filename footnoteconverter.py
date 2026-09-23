@@ -122,20 +122,43 @@ class FootnoteService:
         return False
 
     def adjust_footnote_separator(self, doc, is_rtl=True):
-        adjust_val = RIGHT if is_rtl else LEFT
+        """
+        ضبط خط الفاصل تلقائياً حسب لغة المستند:
+          - عربي  (RTL) → يمين  (RIGHT = 2)
+          - إنجليزي (LTR) → يسار  (LEFT  = 0)
+        يضبط WritingMode أولاً (يحدد اتجاه الصفحة)
+        ثم FootnoteLineAdjust صراحةً (يحدد جهة خط الفاصل).
+        """
+        adjust_val = RIGHT if is_rtl else LEFT   # RIGHT=2 عربي, LEFT=0 إنجليزي
+        wm_val    = RL_TB  if is_rtl else LR_TB  # RL_TB=1 عربي, LR_TB=0 إنجليزي
         try:
             style_families = doc.getStyleFamilies()
-            if style_families.hasByName("PageStyles"):
-                page_styles = style_families.getByName("PageStyles")
-                for name in page_styles.getElementNames():
+            if not style_families.hasByName("PageStyles"):
+                return
+            page_styles = style_families.getByName("PageStyles")
+            for name in page_styles.getElementNames():
+                try:
                     ps = page_styles.getByName(name)
+                    # خطوة 1: تحديد WritingMode للصفحة (يجب أن يسبق FootnoteLineAdjust)
+                    if hasattr(ps, "WritingMode"):
+                        try:
+                            ps.WritingMode = wm_val
+                        except Exception:
+                            pass
+                    # خطوة 2: ضبط جهة خط الفاصل صراحةً
                     if hasattr(ps, "FootnoteLineAdjust"):
                         try:
                             ps.FootnoteLineAdjust = adjust_val
                         except Exception:
-                            pass
+                            try:
+                                ps.FootnoteLineAdjust = int(adjust_val)
+                            except Exception:
+                                pass
+                except Exception:
+                    pass
         except Exception as e:
             print(f"[FootnoteConverter] adjust_footnote_separator error: {e}")
+
 
     def adjust_footnote_paragraphs(self, doc, is_rtl=True):
         wm = RL_TB if is_rtl else LR_TB
@@ -301,6 +324,11 @@ class FootnoteService:
             return
 
         is_rtl = self.is_arabic_document(doc)
+
+        # ضبط خط الفاصل ومحاذاة الحواشي تلقائياً حسب اللغة المكتشفة
+        # Auto-align footnote separator and paragraphs based on detected language
+        self.adjust_footnote_separator(doc, is_rtl)
+        self.adjust_footnote_paragraphs(doc, is_rtl)
 
         # Set FootnoteSettings BEFORE entering Undo context
         # to ensure global document properties do not wipe the text Undo stack
@@ -765,6 +793,7 @@ class FootnoteService:
                 action_locked = True
 
             is_rtl = self.is_arabic_document(doc)
+            self.adjust_footnote_separator(doc, is_rtl)
             wm = RL_TB if is_rtl else LR_TB
             pa = PARA_RIGHT if is_rtl else PARA_LEFT
 
