@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 """
-Footnote Converter Pro Extension for LibreOffice Writer (Version 2.3.1)
+Footnote Converter Pro Extension for LibreOffice Writer (Version 2.3.2)
 Bilingual Edition (Arabic & English) | النسخة ثنائية اللغة (عربي وإنجليزي)
 
 Exclusive marker / علامة الحصر: ONLY < ... > is converted.
@@ -960,7 +960,7 @@ class FootnoteService:
     def show_about(self):
         msg = (
             "Footnote Converter Pro | محول الحواشي المطور\n"
-            "Version | الإصدار: 2.3.1\n"
+            "Version | الإصدار: 2.3.2\n"
             "====================================\n\n"
             "[ العربية - المميزات ]\n"
             "• تحويل علامات الحواشي الحصرية < > إلى حواشي معتمدة بدقة.\n"
@@ -992,7 +992,7 @@ class FootnoteService:
             "• Full single-step undo (Ctrl + Z) for every operation: convert, format & unify.\n"
             "===================================="
         )
-        self.show_message("About | حول محول الحواشي - Footnote Converter Pro v2.3.1", msg)
+        self.show_message("About | حول محول الحواشي - Footnote Converter Pro v2.3.2", msg)
 
 
 class FootnoteConverter(unohelper.Base, XJobExecutor, XServiceInfo):
